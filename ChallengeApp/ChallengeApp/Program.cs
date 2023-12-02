@@ -3,17 +3,17 @@
 ///////////////////
 
 //Zmienne
-var Name = "Ewa";
-var Sex = 'K';
-var Age = 25;
+var name = "Ewa";
+var sex = 'K';
+var age = 25;
 
-if (Sex == 'K')
+if (sex == 'K')
 {
-    if (Name == "Ewa" && Age == 33)
+    if (name == "Ewa" && age == 33)
     {
         Console.WriteLine("Ewa, lat 33");
     }
-    else if (Age < 30)
+    else if (age < 30)
     {
         Console.WriteLine("Kobieta poniżej 30 lat");
     }
@@ -22,13 +22,13 @@ if (Sex == 'K')
         Console.WriteLine("Inna piękna kobieta");
     }
 }
-else
+else if (sex == 'M')
 {
-    if(Age < 18)
+    if (age < 18)
     {
         Console.WriteLine("Niepełnoletni mężczyzna");
     }
-    else if (Age > 18 && Name == "Grzegorz")
+    else if (age > 18 && name == "Grzegorz")
     {
         Console.WriteLine("Pełnoletni Grzegorz");
     }
