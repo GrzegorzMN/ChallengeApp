@@ -4,11 +4,11 @@
     {
         private List<int> grade = new();
 
-        public Employee(string FirstName, string LastName, int Age)
+        public Employee(string firstName, string lastName, int age)
         {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Age = Age;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Age = age;
         }
 
         public string FirstName { get; private set; }
@@ -22,9 +22,9 @@
                 return this.grade.Sum();
             }
         }
-        public void AddGrade(int grade)
+        public void AddGrade(int gr)
         {
-            this.grade.Add(grade);
+            this.grade.Add(gr);
         }
     }
 }

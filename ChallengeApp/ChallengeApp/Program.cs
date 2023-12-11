@@ -54,9 +54,9 @@ foreach (var emp in employees)
 
 if (bestEmpCount == 1)
 { 
-    Console.WriteLine("Najlepszy pracownik / pracowniczka to: " + bestEmployees + ", suma ocen:" + maxGrade);
+    Console.WriteLine("Najlepszy pracownik / pracowniczka to: " + bestEmployees + ", suma ocen: " + maxGrade);
 }
 else
 {
-    Console.WriteLine("Najlepsi pracownicy to: " + bestEmployees + ", suma ocen:" + maxGrade);
+    Console.WriteLine("Najlepsi pracownicy to: " + bestEmployees + ", suma ocen: " + maxGrade);
 }
