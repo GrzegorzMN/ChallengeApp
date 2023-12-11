@@ -1,41 +1,62 @@
-﻿var number = 48885999920;
-var numberInString = number.ToString();
-char[] letters = numberInString.ToCharArray();
+﻿using ChallengeApp;
 
-var count0 = 0;
-var count1 = 0;
-var count2 = 0;
-var count3 = 0;
-var count4 = 0;
-var count5 = 0;
-var count6 = 0;
-var count7 = 0;
-var count8 = 0;
-var count9 = 0;
+Employee emp1 = new Employee("Jan", "Kowalski", 25);
+Employee emp2 = new Employee("Stefan", "Nowak", 35);
+Employee emp3 = new Employee("Maria", "Nowacka", 28);
 
+emp1.AddGrade(4);
+emp1.AddGrade(9);
+emp1.AddGrade(9);
+emp1.AddGrade(8);
+emp1.AddGrade(3);
 
-foreach (char c in letters)
+emp2.AddGrade(5);
+emp2.AddGrade(7);
+emp2.AddGrade(9);
+emp2.AddGrade(2);
+emp2.AddGrade(9);
+
+emp3.AddGrade(9);
+emp3.AddGrade(8);
+emp3.AddGrade(8);
+emp3.AddGrade(2);
+emp3.AddGrade(9);
+
+var maxGrade = 0;
+var bestEmpCount = 0;
+var bestEmployees = "";
+Employee? bestEmployee = null;
+
+List<Employee> employees = new()
 {
-    if (c == '0') count0 = count0 + 1;
-    else if (c == '1') count1 = count1 + 1;
-    else if (c == '2') count2 = count2 + 1;
-    else if (c == '3') count3 = count3 + 1;
-    else if (c == '4') count4 = count4 + 1;
-    else if (c == '5') count5 = count5 + 1;
-    else if (c == '6') count6 = count6 + 1;
-    else if (c == '7') count7 = count7 + 1;
-    else if (c == '8') count8 = count8 + 1;
-    else if (c == '9') count9 = count9 + 1;
+    emp1, emp2, emp3
+};
+
+List<Employee> bestEmps = new();
+
+foreach (var emp in employees)
+{
+    if (emp.TotalGrade > maxGrade)
+    {
+        bestEmployee = emp;  
+        maxGrade = emp.TotalGrade;
+        bestEmps.Add(emp);
+        bestEmpCount = 1;
+        bestEmployees = emp.FirstName + " " + emp.LastName + ", wiek: " + emp.Age;
+    }
+    else if (emp.TotalGrade == maxGrade)
+    {
+        bestEmps.Add(emp);
+        bestEmpCount++;
+        bestEmployees = bestEmployees + ", " + emp.FirstName + " " + emp.LastName + ", wiek: " + emp.Age;
+    }
 }
 
-Console.WriteLine("Wyniki dla liczby: " + number);
-Console.WriteLine("0 => " + count0);
-Console.WriteLine("1 => " + count1);
-Console.WriteLine("2 => " + count2);
-Console.WriteLine("3 => " + count3);
-Console.WriteLine("4 => " + count4);
-Console.WriteLine("5 => " + count5);
-Console.WriteLine("6 => " + count6);
-Console.WriteLine("7 => " + count7);
-Console.WriteLine("8 => " + count8);
-Console.WriteLine("9 => " + count9);
+if (bestEmpCount == 1)
+{ 
+    Console.WriteLine("Najlepszy pracownik / pracowniczka to: " + bestEmployees + ", suma ocen:" + maxGrade);
+}
+else
+{
+    Console.WriteLine("Najlepsi pracownicy to: " + bestEmployees + ", suma ocen:" + maxGrade);
+}
